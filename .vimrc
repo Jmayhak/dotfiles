@@ -39,7 +39,7 @@ set number
 " Enable syntax highlighting
 syntax on
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
 " Highlight current line
 set cursorline
@@ -133,12 +133,12 @@ set foldmethod=indent
 set foldnestmax=10
 set foldlevel=1
 
-run SyntasticEnable php
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_echo_current_error=1
-let g:syntastic_auto_jump=1
+" run SyntasticEnable php
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_enable_signs=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_check_on_open=1
+" let g:syntastic_echo_current_error=1
+" let g:syntastic_auto_jump=1

@@ -1,0 +1,13 @@
+# ~/.tmuxinator/bluegill.yml
+# you can make as many tabs as you wish...
+
+project_name: Bluegill
+project_root: ~/public_html/sites/bluegill/
+rvm: 1.9.2@fortmux
+pre: svn up
+tabs:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+        - #empty, will just run plain bash
