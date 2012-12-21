@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/vim-xdebug"]
 	path = .vim/bundle/vim-xdebug
 	url = git://github.com/ludovicPelle/vim-xdebug.git
+[submodule ".vim/colors"]
+	path = .vim/colors
+	url = git://github.com/flazz/vim-colorschemes.git
