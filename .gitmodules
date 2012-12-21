@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "vim-xdebug"]
+	path = vim-xdebug
+	url = git://github.com/ludovicPelle/vim-xdebug.git
