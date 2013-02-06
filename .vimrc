@@ -39,16 +39,16 @@ set number
 " Enable syntax highlighting
 syntax on
 set background=dark
-" colorscheme solarized
+colorscheme solarized
 
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
 set t_Co=256
 set tabstop=2
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+" Show “invisible” characters nolist = hide, and list = show
+" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set nolist
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -73,11 +73,17 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
+" Use relative line numbers when visual mode and absolute for insert
+set rnu
+au BufEnter * :set rnu
+au BufLeave * :set nu
+au WinEnter * :set rnu
+au WinLeave * :set nu
+au InsertEnter * :set nu
+au InsertLeave * :set rnu
+au FocusLost * :set nu
+au FocusGained * :set rnu
+"
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
@@ -99,11 +105,15 @@ if has("autocmd")
 	filetype on
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+    " for cakephp
+    autocmd BufNewFile,BufRead *.ctp setfiletype=php syntax=php
 endif
-map <leader><leader> :NERDTreeToggle<CR>
+
+set autochdir
+let NERDTreeChDirMode=2
+nnoremap <leader><leader> :NERDTreeToggle .<CR>
 map <C-p> :tabprevious<CR>
 map <C-n> :tabnext<CR>
-nmap <space> zz
 nmap n nzz
 nmap N Nzz
 set expandtab
@@ -111,7 +121,7 @@ set tabstop=4
 set shiftwidth=4
 map <F2> :retab <CR>
 
-map <leader>ff g:Jsbeautify()
+" map <leader>ff g:Jsbeautify()
 
 " Autocomplete for php
 filetype plugin on
@@ -121,11 +131,12 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 set autoindent
 set cindent
 set smartindent
+noremap <leader>j :call GetPhpIndent()<CR>
 
 map <C-j> ggvG$=
 
 " center page on space bar click
-nmap <C-space> <C-x><C-o><CR>
+nmap <space> zz
 " copy/paste multiple times at a time
 xnoremap p pgvy
 
@@ -133,12 +144,14 @@ set foldmethod=indent
 set foldnestmax=10
 set foldlevel=1
 
-" run SyntasticEnable php
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_enable_signs=1
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_check_on_open=1
-" let g:syntastic_echo_current_error=1
-" let g:syntastic_auto_jump=1
+run SyntasticEnable php
+"set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_echo_current_error=1
+let g:syntastic_auto_jump=1
+
+let g:EasyMotion_leader_key = '<Leader>f'

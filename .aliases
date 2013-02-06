@@ -1,3 +1,4 @@
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias svnrefresh='cd ~/public_html; find . -mindepth 1 -maxdepth 3 -name "*.svn" -type d -exec svn up {}/.. \;'
 alias range='~/public_html/scripts/execute_on_range.php'
 alias bg='tmuxinator bluegill'

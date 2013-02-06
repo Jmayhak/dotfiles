@@ -1,6 +1,7 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
-export EDITOR="/usr/bin/vim"
+export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+export SVN_EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.

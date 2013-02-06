@@ -19,3 +19,9 @@
 [submodule ".vim/colors"]
 	path = .vim/colors
 	url = git://github.com/flazz/vim-colorschemes.git
+[submodule ".vim/bundle/vim-easymotion"]
+	path = .vim/bundle/vim-easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe.git
