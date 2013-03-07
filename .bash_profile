@@ -1,5 +1,5 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:/Development/android-sdk-macosx/platform-tools:/Development/android-sdk-macosx/tools:$PATH"
 export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 export SVN_EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 

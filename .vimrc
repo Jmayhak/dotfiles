@@ -131,7 +131,7 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 set autoindent
 set cindent
 set smartindent
-noremap <leader>j :call GetPhpIndent()<CR>
+" noremap <leader>j :call GetPhpIndent()<CR>
 
 map <C-j> ggvG$=
 
@@ -140,14 +140,15 @@ nmap <space> zz
 " copy/paste multiple times at a time
 xnoremap p pgvy
 
-set foldmethod=indent
-set foldnestmax=10
-set foldlevel=1
+set foldmethod=syntax
+" set foldnestmax=10
+" set foldlevel=1
 
 run SyntasticEnable php
 "set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set statusline+=%F
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
@@ -155,3 +156,9 @@ let g:syntastic_echo_current_error=1
 let g:syntastic_auto_jump=1
 
 let g:EasyMotion_leader_key = '<Leader>f'
+
+" imap ii <Esc>
+" Kill the capslock when leaving insert mode.
+" autocmd InsertLeave * set iminsert=0
+" setlocal equalprg=tidy\ -quiet\ --show-errors\ 2\ -i\ --doctype\ omit\ --wrap-php\ y\ --wrap\ 120
+
