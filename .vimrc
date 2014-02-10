@@ -1,164 +1,128 @@
-call pathogen#infect()
-call pathogen#helptags()
-" Make Vim more useful
 set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enhance command-line completion
-set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-" Optimize for fast terminal connections
-set ttyfast
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" Change mapleader
-let mapleader=","
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
-" Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
-endif
+filetype off
 
-" Respect modeline in files
-set modeline
-set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
-" Enable line numbers
-set number
-" Enable syntax highlighting
-syntax on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" My Bundles
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'rking/ag.vim'
+Bundle 'kana/vim-textobj-user'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'wincent/Command-T'
+Bundle 'Lokaltog/vim-easymotion'
+
+filetype plugin indent on
+
+let mapleader=","
+
 set background=dark
 colorscheme solarized
 
-" Highlight current line
-set cursorline
-" Make tabs as wide as two spaces
-set t_Co=256
-set tabstop=2
-" Show “invisible” characters nolist = hide, and list = show
-" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set nolist
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
-set laststatus=2
-" Enable mouse in all modes
-set mouse=a
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-" Show the cursor position
-set ruler
-" Don’t show the intro message when starting Vim
-set shortmess=atI
-" Show the current mode
-set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
-set showcmd
-" Use relative line numbers when visual mode and absolute for insert
-set rnu
-au BufEnter * :set rnu
-au BufLeave * :set nu
-au WinEnter * :set rnu
-au WinLeave * :set nu
-au InsertEnter * :set nu
-au InsertLeave * :set rnu
-au FocusLost * :set nu
-au FocusGained * :set rnu
-"
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
-
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-    " for cakephp
-    autocmd BufNewFile,BufRead *.ctp setfiletype=php syntax=php
-endif
-
-set autochdir
-let NERDTreeChDirMode=2
-nnoremap <leader><leader> :NERDTreeToggle .<CR>
-map <C-p> :tabprevious<CR>
-map <C-n> :tabnext<CR>
-nmap n nzz
-nmap N Nzz
-set expandtab
-set tabstop=4
-set shiftwidth=4
-map <F2> :retab <CR>
-
-" map <leader>ff g:Jsbeautify()
-
-" Autocomplete for php
-filetype plugin on
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-" smarter indenting... remember where you were
 set autoindent
 set cindent
 set smartindent
-" noremap <leader>j :call GetPhpIndent()<CR>
+set noerrorbells
+set nostartofline
+set shortmess=atI
+set cursorline
+set expandtab
+set modelines=0
+set shiftwidth=2
+set clipboard=unnamed
+set synmaxcol=128
+set ttyscroll=10
+set encoding=utf-8
+set tabstop=2
+set nowrap
+set number
+set expandtab
+set nowritebackup
+set noswapfile
+set nobackup
+set hlsearch
+set ignorecase
+set smartcase
 
-map <C-j> ggvG$=
+" Automatic formatting
+autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufWritePre *.go :%s/\s\+$//e
+autocmd BufWritePre *.haml :%s/\s\+$//e
+autocmd BufWritePre *.html :%s/\s\+$//e
+autocmd BufWritePre *.scss :%s/\s\+$//e
+autocmd BufWritePre *.slim :%s/\s\+$//e
+
+au BufNewFile * set noeol
+au BufRead,BufNewFile *.go set filetype=go
+
+" No show command
+autocmd VimEnter * set nosc
+
+" Quick ESC
+imap jj <ESC>
+
+" Jump to the next row on long lines
+map <Down> gj
+map <Up>   gk
+nnoremap j gj
+nnoremap k gk
+
+" format the entire file
+nmap <leader>fef ggVG=
+
+" Open new buffers
+nmap <leader>s<left>   :leftabove  vnew<cr>
+nmap <leader>s<right>  :rightbelow vnew<cr>
+nmap <leader>s<up>     :leftabove  new<cr>
+nmap <leader>s<down>   :rightbelow new<cr>
+
+" Tab between buffers
+noremap <tab> <c-w><c-w>
+
+" Switch between last two buffers
+nnoremap <leader><leader> <C-^>
+
+" Resize buffers
+if bufwinnr(1)
+  nmap Ä <C-W><<C-W><
+  nmap Ö <C-W>><C-W>>
+  nmap ö <C-W>-<C-W>-
+  nmap ä <C-W>+<C-W>+
+endif
+
+" NERDTree
+nmap <leader>, :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
+let NERDTreeShowHidden = 1 
+
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'passive' }
+run SyntasticEnable php
+let g:syntastic_check_on_open=1
+
+" Easymotion
+let g:EasyMotion_leader_key = '<Leader>f'
+
+" CtrlP
+nnoremap <silent> t :CtrlP<cr>
+let g:ctrlp_working_path_mode = 2
+let g:ctrlp_by_filename = 1
+let g:ctrlp_max_files = 600
+let g:ctrlp_max_depth = 5
+
+" Quit with :Q
+command -nargs=0 Quit :qa!
 
 " center page on space bar click
 nmap <space> zz
-" copy/paste multiple times at a time
-xnoremap p pgvy
-
-set foldmethod=syntax
-" set foldnestmax=10
-" set foldlevel=1
-
-run SyntasticEnable php
-"set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline+=%F
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_echo_current_error=1
-let g:syntastic_auto_jump=1
-
-let g:EasyMotion_leader_key = '<Leader>f'
-
-" imap ii <Esc>
-" Kill the capslock when leaving insert mode.
-" autocmd InsertLeave * set iminsert=0
-" setlocal equalprg=tidy\ -quiet\ --show-errors\ 2\ -i\ --doctype\ omit\ --wrap-php\ y\ --wrap\ 120
-
