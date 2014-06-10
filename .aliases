@@ -1,9 +1,4 @@
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias svnrefresh='cd ~/public_html; find . -mindepth 1 -maxdepth 3 -name "*.svn" -type d -exec svn up {}/.. \;'
-alias range='~/public_html/scripts/execute_on_range.php'
-alias bg='tmuxinator bluegill'
-alias cdb='cd ~/public_html/sites/bluegill'
-alias cds='cd ~/public_html/scripts/cache_scripts/bluegill'
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -11,6 +6,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
+
+alias sites="cd ~/Sites"
+alias php='/Applications/MAMP/bin/php/php5.4.26/bin/php'
+alias vssh='vagrant ssh'
 
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
@@ -25,6 +24,8 @@ alias m="mate ."
 alias s="subl ."
 alias o="open"
 alias oo="open ."
+
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -131,3 +132,6 @@ done
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
+
+alias sudo='nocorrect sudo'
+
