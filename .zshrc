@@ -51,7 +51,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/Users/jmayhak/bin:/Development/android-sdk-macosx/platform-tools:/Development/android-sdk-macosx/tools:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/Users/jmayhak/bin:/Development/android-sdk-macosx/platform-tools:/Development/android-sdk-macosx/tools:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rbenv/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -66,4 +66,5 @@ export PATH="/usr/local/bin:/Users/jmayhak/bin:/Development/android-sdk-macosx/p
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
+#
+eval "$(rbenv init -)"
