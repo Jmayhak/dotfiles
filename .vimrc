@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " Let Vundle manage Vundle
@@ -21,6 +21,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'wincent/Command-T'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'joonty/vdebug.git'
 
 filetype plugin indent on
 
@@ -126,3 +127,12 @@ command -nargs=0 Quit :qa!
 
 " center page on space bar click
 nmap <space> zz
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+

@@ -48,6 +48,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.aliases
 
 # User configuration
 
@@ -68,3 +69,5 @@ export PATH="/usr/local/bin:/Users/jmayhak/bin:/Development/android-sdk-macosx/p
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
 eval "$(rbenv init -)"
+# ssh-add ~/.ssh/linode_rsa &>/dev/null
+
