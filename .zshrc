@@ -68,18 +68,8 @@ export PATH="/usr/local/bin:/Users/jmayhak/bin:/Development/android-sdk-macosx/p
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
-
-ssh-add ~/.ssh/linode_rsa &>/dev/null
-#ssh-add ~/.ssh/bb2_rsa &>/dev/null
-#ssh-add ~/.ssh/bb_rsa &>/dev/null
-#ssh-add ~/.ssh/bcbs &>/dev/null
-ssh-add ~/.ssh/carl-henderson &>/dev/null
-ssh-add ~/.ssh/ch_heroku &>/dev/null
-ssh-add ~/.ssh/cn-dev-macpro &>/dev/null
-ssh-add ~/.ssh/cn_id_rsa &>/dev/null
-ssh-add ~/.ssh/web-server &>/dev/null
-
 eval "$(rbenv init -)"
+# ssh-add ~/.ssh/linode_rsa &>/dev/null
 
 # Apply a Trac patch.
 function tp() {
