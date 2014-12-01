@@ -22,6 +22,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'wincent/Command-T'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'joonty/vdebug.git'
+Bundle 'Chiel92/vim-autoformat'
 
 filetype plugin indent on
 
@@ -136,3 +137,10 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" Autoformat
+" For js, css, scss, and html make sure npm install -g js-beautify
+" For php use wp-tidy https://github.com/scribu/wp-phptidy
+let g:formatprg_php = '/usr/local/bin/wptidy replace @%'
+noremap <F3> :Autoformat<CR><CR>
+
+set noeb vb t_vb=

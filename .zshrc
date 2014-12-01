@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="mh"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -68,7 +68,24 @@ export PATH="/usr/local/bin:/Users/jmayhak/bin:/Development/android-sdk-macosx/p
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
-# ssh-add ~/.ssh/linode_rsa &>/dev/null
+
+ssh-add ~/.ssh/linode_rsa &>/dev/null
+#ssh-add ~/.ssh/bb2_rsa &>/dev/null
+#ssh-add ~/.ssh/bb_rsa &>/dev/null
+#ssh-add ~/.ssh/bcbs &>/dev/null
+ssh-add ~/.ssh/carl-henderson &>/dev/null
+ssh-add ~/.ssh/ch_heroku &>/dev/null
+ssh-add ~/.ssh/cn-dev-macpro &>/dev/null
+ssh-add ~/.ssh/cn_id_rsa &>/dev/null
+ssh-add ~/.ssh/web-server &>/dev/null
 
 eval "$(rbenv init -)"
 
+# Apply a Trac patch.
+function tp() {
+  curl "$1?format=raw" | patch -p0
+}
+
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+. `brew --prefix`/etc/profile.d/z.sh
