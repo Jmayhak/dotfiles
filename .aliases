@@ -8,7 +8,10 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 alias sites="cd ~/Sites"
-alias php='/Applications/MAMP/bin/php/php5.4.26/bin/php'
+alias uscca="cd ~/Sites/jmayhak-usconcealedcarry.com/src/wp-content/themes/uscca_2016"
+alias docs="cd ~/Sites/docs.usconcealedcarry.com"
+alias hs="cd ~/Homestead"
+# alias php='/Applications/MAMP/bin/php/php5.4.26/bin/php'
 alias vssh='vagrant ssh'
 
 # Shortcuts

@@ -52,8 +52,11 @@ source ~/.aliases
 
 # User configuration
 
-export PATH="/usr/local/bin:/Users/jmayhak/bin:/Development/android-sdk-macosx/platform-tools:/Development/android-sdk-macosx/tools:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rbenv/bin"
+export PATH="/usr/local/bin:/Users/johnathanmayhak/bin:/Development/android-sdk-macosx/platform-tools:/Development/android-sdk-macosx/tools:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rbenv/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/Users/johnathanmayhak/.composer/vendor/bin:$PATH"
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -69,6 +72,7 @@ export PATH="/usr/local/bin:/Users/jmayhak/bin:/Development/android-sdk-macosx/p
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
 eval "$(rbenv init -)"
+source ~/.rvm/scripts/rvm
 # ssh-add ~/.ssh/linode_rsa &>/dev/null
 
 # Apply a Trac patch.
@@ -76,6 +80,13 @@ function tp() {
   curl "$1?format=raw" | patch -p0
 }
 
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-. `brew --prefix`/etc/profile.d/z.sh
+# . `brew --prefix`/etc/profile.d/z.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
+export NVM_DIR="/Users/johnathanmayhak/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+

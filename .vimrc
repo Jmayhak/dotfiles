@@ -23,6 +23,7 @@ Bundle 'wincent/Command-T'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'joonty/vdebug.git'
 Bundle 'Chiel92/vim-autoformat'
+Bundle 'junegunn/vim-easy-align'
 
 filetype plugin indent on
 
@@ -55,6 +56,7 @@ set nobackup
 set hlsearch
 set ignorecase
 set smartcase
+set rnu
 
 " Automatic formatting
 autocmd BufWritePre *.rb :%s/\s\+$//e
@@ -144,3 +146,7 @@ let g:formatprg_php = '/usr/local/bin/wptidy replace @%'
 noremap <F3> :Autoformat<CR><CR>
 
 set noeb vb t_vb=
+
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+

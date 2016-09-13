@@ -1,1 +1,27 @@
-source ~/.vimrc
+set autoindent
+set cindent
+set smartindent
+set noerrorbells
+set nostartofline
+set shortmess=atI
+set cursorline
+set expandtab
+set modelines=0
+set shiftwidth=2
+set clipboard=unnamed
+set synmaxcol=128
+set ttyscroll=10
+set encoding=utf-8
+set tabstop=2
+set nowrap
+set number
+set expandtab
+set nowritebackup
+set noswapfile
+set nobackup
+set hlsearch
+set ignorecase
+set smartcase
+set rnu
+
+nma <space> zz
